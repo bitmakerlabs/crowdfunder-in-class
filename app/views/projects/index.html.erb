@@ -3,7 +3,7 @@
 <ul>
 <% @projects.each do |project| %>
   <li>
-    <%= link_to project.title, "#" %>
+    <%= link_to project.title, project %>
     <br>
     <%= project.teaser %>
   </li>

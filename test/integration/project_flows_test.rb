@@ -19,10 +19,10 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Something else??")
 
 
-    #assert that the page has projects listed
-
-
-
+    # Go to the project details (show) page
+    click_link 'Waterproof Whiteboard'
+    assert_equal project_path(p2), current_path
+    assert find('h1:first').has_content? p2.title
   end
 
   test "navigation" do
