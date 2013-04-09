@@ -1,0 +1,8 @@
+<h1>Listing Projects!!!</h1>
+<p>Find me in app/views/projects/index.html.erb</p>
+
+<ul>
+<% @projects.each do |project| %>
+  <li><%= project.title %></li>
+<% end %>
+</ul>
