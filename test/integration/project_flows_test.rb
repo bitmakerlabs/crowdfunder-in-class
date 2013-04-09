@@ -23,6 +23,18 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
 
 
 
-  end  
+  end
+
+  test "navigation" do
+    visit "/"
+    assert_equal root_path, current_path
+    # The home nav element should be active
+    assert_equal "Home", find("ul.nav li.active a").text
+
+    visit "/projects"
+    assert_equal projects_path, current_path
+    # The projects nav element should be active
+    assert_equal "Projects", find("ul.nav li.active a").text
+  end
 
 end

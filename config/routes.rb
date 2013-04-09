@@ -1,10 +1,11 @@
 CrowdfunderInClass::Application.routes.draw do
-  get "projects/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   resources :projects
+
+  root :to => "welcome#index"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
