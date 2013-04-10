@@ -4,6 +4,7 @@ CrowdfunderInClass::Application.routes.draw do
   # first created -> highest priority.
 
   resources :projects
+  resources :users, :except => [:index, :destroy]
 
   root :to => "welcome#index"
 
