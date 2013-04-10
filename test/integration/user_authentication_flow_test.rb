@@ -39,9 +39,25 @@ class UserAuthenticationFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "logout" do 
+    Capybara.current_driver = Capybara.javascript_driver
+    user = get_signed_in_user
+
+    # Use the javascript driver instead of the default (non-JS) drivers 
+    # ACTUAL TEST
+    visit '/projects'
+    click_link 'Logout'
+    assert_equal root_path, current_path  
+
   end
 
-  test "log in" do 
+  test "successful log in" do 
+    get_signed_in_user # do a sucessful sign in
+    assert_equal root_path, current_path
+    assert find('.navbar').has_link?('Logout') # Now there's a logout link in the navbar, yay!
+  end
+
+  test "unsuccessful log in" do 
+    # you can figure this one out folks!
   end
 
 end

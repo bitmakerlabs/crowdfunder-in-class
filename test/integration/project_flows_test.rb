@@ -18,7 +18,6 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Waterproof Whiteboard")
     assert page.has_content?("Something else??")
 
-
     # Go to the project details (show) page
     click_link 'Waterproof Whiteboard'
     assert_equal project_path(p2), current_path
