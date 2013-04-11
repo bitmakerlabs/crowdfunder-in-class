@@ -1,5 +1,10 @@
 <h1><%= @project.title%></h1>
 
+<%= link_to 'Back This Project', new_project_pledge_path(@project), class: 'btn btn-success btn-large' %>
+
+<hr/>
+
 <p>
   A project by <%= @project.user.first_name %> <%= @project.user.last_name %>
 </p>
+
