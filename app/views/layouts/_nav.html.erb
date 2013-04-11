@@ -6,6 +6,11 @@
       <li class="<%= 'active' if controller_name == 'projects' %>">
         <%= link_to "Projects", projects_url %>
       </li>
+      <% if logged_in? %>
+        <li>
+          <%= link_to "My Projects", my_projects_url %>
+        </li>
+      <% end %>
     </ul>
 
       <div class="pull-right">
@@ -19,3 +24,5 @@
 
   </div>
 </div>
+
+<%= params %>

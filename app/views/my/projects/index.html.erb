@@ -1,0 +1,9 @@
+<h1>My Projects</h1>
+<p>Manage all of your projects here.</p>
+
+<ul>
+  <% @projects.each do |project| %>
+    <li><%= project.title %></li>
+  <% end %>
+
+</ul>
