@@ -2,12 +2,12 @@
   <div class="navbar-inner">
     <a class="brand" href="#">CrowdFunder</a>
     <ul class="nav">
-      <li class="<%= 'active' if controller_name == 'welcome'%>"><a href="/">Home</a></li>
-      <li class="<%= 'active' if controller_name == 'projects' %>">
+      <li class="<%= 'active' if params[:controller] == 'welcome'%>"><a href="/">Home</a></li>
+      <li class="<%= 'active' if params[:controller] == 'projects' %>">
         <%= link_to "Projects", projects_url %>
       </li>
       <% if logged_in? %>
-        <li>
+        <li class="<%= 'active' if params[:controller] == 'my/projects'%>">
           <%= link_to "My Projects", my_projects_url %>
         </li>
       <% end %>
@@ -24,5 +24,3 @@
 
   </div>
 </div>
-
-<%= params %>

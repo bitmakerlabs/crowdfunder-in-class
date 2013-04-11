@@ -14,6 +14,12 @@ class My::ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert_false find('.navbar').has_link?('My Projects')
   end
 
+  test "the my projects link is active when I visit the my projects page" do
+    get_signed_in_user
+    visit my_projects_url
+    assert_equal find("ul.nav li.active a").text, "My Projects"
+  end
+
   test "the my projects page lists all of my projects" do
     user = get_signed_in_user
     5.times { FactoryGirl.create(:project, :user => user)}
