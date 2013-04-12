@@ -1,0 +1,21 @@
+<h1><%= @project.title %></h1>
+
+<h4>Add Image</h4>
+
+<%= form_for [:my, @project, @image] do |f| %>
+  <%= render 'shared/form_errors', :f => f %>
+  <%= f.file_field :file %>
+  <%= f.submit %>
+<% end %>
+
+<h4>This project has <%= @images.count %> Images</h4>
+
+<ul class="thumbnails">
+  <% @images.each do |img| %>
+    <li class="image span3">
+      <div class="thumbnail">
+        <img src="<%= img.file.url%>"></img>
+      </div>
+    </li>
+  <% end %>
+</ul>
