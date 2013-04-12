@@ -24,6 +24,27 @@ class ProjectFlowsTest < ActionDispatch::IntegrationTest
     assert find('h1:first').has_content? p2.title
   end
 
+  test "pagination" do
+    user = FactoryGirl.create :user
+    50.times { |i| FactoryGirl.create(:project, title: "Project #{i}", user: user) }
+
+    visit "/projects"
+
+    # Expect the most recently created projects on page 1 (8 PER PAGE)
+    assert page.has_content?('Displaying projects 1 - 8 of 50 in total')
+    assert page.has_content?('Project 49')
+    assert page.has_no_content?('Project 41')
+    page.assert_selector 'li.project', count: 8
+
+    # Expect pagination link and click page 2
+    page.find('.pagination').click_link '2'
+    assert projects_path(page: 2), current_path
+
+    # Expect page 2 to have the next 8 projects
+    assert page.has_content?('Project 41')
+    assert page.has_no_content?('Project 32')
+  end
+
   test "navigation" do
     visit "/"
     assert_equal root_path, current_path

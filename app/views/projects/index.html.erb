@@ -9,7 +9,7 @@
 
 <ul>
 <% @projects.each do |project| %>
-  <li>
+  <li class="project">
     <%= link_to project.title, project %>
     <br>
     <%= project.teaser %>
@@ -18,3 +18,5 @@
 </ul>
 
 <%= paginate @projects %>
+
+<!-- REFACTOR the above to be used on both the /projects and /my/projects index page -->
