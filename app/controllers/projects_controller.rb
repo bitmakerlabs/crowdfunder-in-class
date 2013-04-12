@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.latest.page params[:page]
   end
 
   def show

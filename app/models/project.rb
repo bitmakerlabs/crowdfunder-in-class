@@ -8,4 +8,6 @@ class Project < ActiveRecord::Base
   validates :teaser, presence: true, length: {maximum: 255}
   validates :description, presence: true
   validates :goal, presence: true, numericality: {greater_than: 0, allow_blank: true}
+
+  scope :latest, order('created_at DESC')
 end

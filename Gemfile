@@ -24,6 +24,8 @@ end
 gem 'jquery-rails'
 
 gem 'sorcery'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :development do
   gem 'better_errors'
@@ -32,12 +34,12 @@ group :development do
 end
 
 group :tools do
-  gem 'rb-fsevent', :require => false 
+  gem 'rb-fsevent', :require => false
   gem 'guard-test'
   gem 'guard-livereload'
 end
 
-group :test do 
+group :test do
     gem "factory_girl_rails"
     gem "database_cleaner"
     gem "capybara"
