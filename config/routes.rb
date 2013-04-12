@@ -10,7 +10,7 @@ CrowdfunderInClass::Application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
 
   namespace :my do
-    resources :projects
+    resources :projects, :except => [:show] # => My::ProjectsController
   end
 
   root :to => "welcome#index"

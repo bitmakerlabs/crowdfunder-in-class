@@ -1,2 +1,22 @@
-<h1>My::Projects#new</h1>
-<p>Find me in app/views/my/projects/new.html.erb</p>
+<h1>New Project</h1>
+
+<hr/>
+
+<div class="well">
+  <%= link_to [:my, :projects], :class => 'btn btn-small' do %>
+    &laquo; My Projects
+  <% end %>
+</div>
+
+<%= form_for [:my, @project] do |f| %>
+
+  <%= render 'shared/form_errors', :f => f %>
+
+  <%# Automatically detects that we are trying to render a form and looks for _form template %>
+  <%= render f %>
+
+  <div class="form-actions">
+    <%= f.submit 'Publish Project', class: 'btn' %>
+  </div>
+
+<% end %>
